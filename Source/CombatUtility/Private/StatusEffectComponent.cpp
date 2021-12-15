@@ -95,7 +95,7 @@ void UStatusEffectComponent::ApplyEffect()
 	Effector = Effector + StatusEffect.Intensity;
 	if(MasterStatManager)
 	{
-		MasterStatManager->ApplyStatusEffectMulticast(StatusEffect,Effector); 
+		MasterStatManager->ApplyStatusEffectMulticast(StatusEffect, StatusEffect.Intensity);
 	}
 }
 
