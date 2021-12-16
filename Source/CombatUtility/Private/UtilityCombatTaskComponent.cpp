@@ -48,7 +48,6 @@ void UUtilityCombatTaskComponent::TickComponent(float DeltaTime, ELevelTick Tick
 
 float UUtilityCombatTaskComponent::CalculateTaskScore_Implementation(UUtilityAIManagerComponent* ManagerComponent)
 {
-	CurrentManagerComponent = ManagerComponent;
 	if(!ManagerComponent || !IsTaskReady())
 	{
 		return 0.0f; //Score of 0.0f if we aren't ready OR we were never given a manager component.
@@ -107,7 +106,6 @@ float UUtilityCombatTaskComponent::CalculateTaskScore_Implementation(UUtilityAIM
 	
 	}
 
-	FinalNormalizedUtilityValue = RunningNormalizedUtilityValue;
 	return RunningNormalizedUtilityValue;
 }
 

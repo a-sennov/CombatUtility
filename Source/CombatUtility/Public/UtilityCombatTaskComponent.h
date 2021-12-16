@@ -104,12 +104,6 @@ public:
 	
 		
 	/*
-	Stores last value from CalculateTaskScore()
-	*/
-	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Transient, Category = Task)
-	float FinalNormalizedUtilityValue = 0.0f;
-
-	/*
 	We can do multiple tasks at one time. Tasks on TaskLayer 1 can occur at the same time as tasks on TaskLayer 2.
 	*/
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Transient, Category = Task)

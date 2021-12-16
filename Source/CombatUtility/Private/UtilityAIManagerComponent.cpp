@@ -63,6 +63,7 @@ void UUtilityAIManagerComponent::Initialize()
 		{
 			PossibleLayers.AddUnique(UCTC->TaskLayer);
 			UCTC->OwnerController = OwnerController;
+			UCTC->CurrentManagerComponent = this;
 		}
 	
 	}
