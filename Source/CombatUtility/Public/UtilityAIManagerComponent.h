@@ -271,21 +271,30 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void Initialize();
 
+	/**
+	* Call when the owner is possessed.
+	*/
+	UFUNCTION(BlueprintCallable)
+	void SetMovementComponentPointers();
+
+	/**
+	* This does the work of evaluationing the tasks
+	* 
+	* Calls AnteScoreCalculations();
+	* ScoreTasks();
+	* ChangeToBestTasks();
+	*/
+	UFUNCTION(BlueprintCallable)
+	void DetermineBestTask();
+
+	UFUNCTION(BlueprintCallable)
+	void StopAllTasks();
+
 	/*
 	Calculations that need to be done before calling ScoreTasks()
 	*/
 	void AnteScoreCalculations();
 
-	/*
-	This does the work of evaluationing the tasks
-
-	Calls AnteScoreCalculations();
-	ScoreTasks();
-	ChangeToBestTasks();
-
-	*/
-	UFUNCTION(BlueprintCallable)
-	void DetermineBestTask();
 
 	/*
 	Interrupt all tasks that we can. Clean up any ended tasks. Only do the BestTasks on layers that are freed for a new task.
@@ -307,9 +316,4 @@ public:
 
 	TMap<int32,UUtilityCombatTaskComponent*> ScoreTasks();
 	
-	/*
-	Call when the owner is possessed.
-	*/
-	UFUNCTION(BlueprintCallable)
-	void SetMovementComponentPointers();
 };

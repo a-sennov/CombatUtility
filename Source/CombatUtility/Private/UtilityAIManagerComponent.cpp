@@ -309,6 +309,19 @@ void UUtilityAIManagerComponent::DetermineBestTask()
 	ChangeToBestTasks(BT);
 }
 
+void UUtilityAIManagerComponent::StopAllTasks()
+{
+	for (int32 TaskLayer : PossibleLayers)
+	{
+		if (!CurrentTasks.Contains(TaskLayer))
+			continue;
+		UUtilityCombatTaskComponent* CurrentTask = CurrentTasks[TaskLayer];
+		CurrentTask->ExitTask();
+		OnAnyTaskExit.Broadcast(CurrentTask->TaskName);
+	}
+	CurrentTasks.Empty();
+}
+
 void UUtilityAIManagerComponent::FindClosestCoverPoint()
 {
 
